@@ -5,25 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Search Application</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 </head>
 <body>
-    <header>
-        <h1>Recipe Finder</h1>
-        <p>Discover Recipes Based on Ingredients You Have</p>
-        <nav class="navbar">
-            <div class="nav-brand"><h1>Recipe Finder</h1></div>
-            <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="saved-recipes.html" class="nav-link">Saved Recipes</a>
-                <a href="search-history.html" class="nav-link">Search History</a>
-                <a href="browse-recipes.html" class="nav-link">Free Recipe Browsing</a>
-            </div>
-            <div class="nav-user">
-                <button id="login-button" class="nav-button">Login</button>
-                <button id="register-button" class="nav-button">Register</button>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe Search Application</title>
+        <!-- Include Bootstrap CSS from CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- Navigation bar with Bootstrap classes -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">Recipe Finder</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="saved-recipes.html">Saved Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="search-history.html">Search History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="browse-recipes.html">Free Recipe Browsing</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="login-button">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="register-button">Register</a>
+                    </li>
+                </ul>
             </div>
         </nav>
-    </header>
+
     <main>
         <section id="ingredient-section">
             <h2>What's in your fridge?</h2>
