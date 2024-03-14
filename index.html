@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Recipe Finder</h1>
+        <p>Inspired by a Decade of Culinary Expertise</p>
+        <nav>
+            <button id="login-button">Login</button>
+            <button id="register-button">Register</button>
+        </nav>
+    </header>
+    <main>
+        <section id="search-section">
+            <input type="text" id="search-bar" placeholder="Search for recipes...">
+            <button id="search-button">Search</button>
+        </section>
+
+        <section id="filters-section">
+            <fieldset>
+                <legend>Filter by dietary preference:</legend>
+                <label for="vegetarian">
+                    <input type="checkbox" id="vegetarian" name="diet" value="vegetarian">
+                    Vegetarian
+                </label>
+                <label for="vegan">
+                    <input type="checkbox" id="vegan" name="diet" value="vegan">
+                    Vegan
+                </label>
+                <label for="gluten-free">
+                    <input type="checkbox" id="gluten-free" name="diet" value="gluten-free">
+                    Gluten-Free
+                </label>
+                <label for="ketogenic">
+                    <input type="checkbox" id="ketogenic" name="diet" value="ketogenic">
+                    Ketogenic
+                </label>
+                <label for="paleo">
+                    <input type="checkbox" id="paleo" name="diet" value="paleo">
+                    Paleo
+                </label>
+                <!-- Add more dietary options here -->
+            </fieldset>
+        </section>
+
+        <section id="results-section">
+            <!-- Results will be populated here -->
+        </section>
+
+        <section id="favorites-section">
+            <h2>Favorite Recipes</h2>
+            <!-- Users can save favorite recipes here -->
+        </section>
+
+        <section id="shopping-list-section">
+            <h2>Shopping List</h2>
+            <!-- Shopping list items will be added here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
