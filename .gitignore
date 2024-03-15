@@ -1,0 +1,2 @@
+# Ignore Config.js so our api key is not displayed
+config.js
