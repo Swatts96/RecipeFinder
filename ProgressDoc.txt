@@ -1,0 +1,20 @@
+
+Today, I made significant progress on my Recipe Finder project, focusing on enhancing user interaction, securing sensitive data, and integrating with an external API. Here's a rundown of the key tasks and improvements I tackled:
+
+Logo Design: I started by creating a minimalist logo featuring a pear, an apple, and a banana. This new logo aligns with the theme of my project and is intended for use in the application's header or marketing materials.
+
+CSS Adjustments for Bootstrap Navbar: I learned how to customize the Bootstrap navbar, specifically changing its background color. This involved writing CSS to target the navbar and adjusting its properties to fit the visual theme of my website.
+
+Font Change Implementation: I chose to change the website's font to Oswald. This involved adding Oswald from Google Fonts to my website's HTML and CSS, enhancing the typography to match my design preferences.
+
+Centering Content: I received guidance on how to center content within a specific section of my webpage, including CSS techniques for centering both text and block elements effectively.
+
+Securing API Keys: We discussed the importance of not exposing my API keys in public repositories. I learned about storing the API key in environment variables, using a .gitignore file to exclude config files from my repository, and other strategies to keep my key secure while maintaining a public repository.
+
+Git .gitignore File Creation: I was instructed on how to create a .gitignore file to ensure sensitive files, such as my config.js containing API keys, are not tracked or pushed to my Git repository.
+
+Fetching Data from the Spoonacular API: I began integrating the Spoonacular API to fetch ingredients and recipes dynamically. A function was outlined to fetch ingredients by category, and I learned how to reference my API key securely in my JavaScript code.
+
+Interactive Ingredient Selection: I planned an interactive ingredient selection feature, replacing a simple input box with a bubble selection system. This included creating dynamic tabs for different ingredient categories, where ingredients can be searched and selected.
+
+Throughout this session, I focused on best practices for web development, including how to efficiently use external APIs, secure sensitive information, and enhance user interface elements for a better user experience. These enhancements are aimed at making the Recipe Finder more user-friendly, secure, and visually appealing, addressing specific needs of my project from user interaction to data security and external API integration.
