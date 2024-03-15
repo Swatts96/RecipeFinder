@@ -12,13 +12,12 @@ At a time where food costs are higher than ever, I believe it's important for th
 
 This project is not just about building a web application; it's about channeling my passion for cooking into a digital medium, bridging the gap between my culinary background and my newfound love for coding. 
 
-Join me on this exciting journey as we blend the art of cooking with the science of coding, creating a platform that celebrates the diversity and richness of cuisines from around the globe.
 
 Goals:
 
     Create a web application that allows users to search for recipes based on ingredients or keywords.
     Integrate with a recipe API (Choosing Spoonacular) to fetch recipe data and display results dynamically.
-    Implement features like filtering by dietary restrictions, saving favorite recipes, and generating shopping lists.
+    Implement features like filtering by dietary restrictions, leftover ingredients and saving favorite recipes, and generating shopping lists.
 
 
 General Must Do's:
@@ -33,7 +32,7 @@ General Must Do's:
     Allow users to save favorite recipes and view them later.
 
     Provide the functionality to generate a shopping list based on selected recipes.
-    
+
     Optional Enhancements:
 
     Implement user authentication to allow users to save their favorite recipes across sessions.
