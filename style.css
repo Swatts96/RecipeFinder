@@ -1,12 +1,14 @@
+
 /* Set a background color for the whole page */
 body {
     background-color: #ffffff; /* A light grey background, you can choose any color you like */
+    font-family: 'Oswald', sans-serif;
 }
 
 /* Style for the main content area */
 .content-area {
     border: 2px solid #dee2e6; /* A subtle grey border */
-    background-color: #bae3f8; /* White background for the content area */
+    background-color: #fff6b8b5; /* White background for the content area */
     padding: 20px; /* Padding inside the content area */
     margin-top: 20px; /* Margin at the top of the content area */
     border-radius: 5px; /* Slightly rounded corners for the border */
@@ -16,22 +18,25 @@ body {
 /* Additional styling for the ingredient section */
 #ingredient-section {
     margin-bottom: 20px; /* Add some space below the ingredient section */
+    text-align: center; /* Centers text elements */
 }
 
 /* Styling for the filter checkboxes */
 #filters-section label {
     margin-right: 10px; /* Space out the checkboxes */
+    text-align: center; /* Centers text elements */
 }
 
 /* Style the buttons with a primary color */
 button {
-    background-color: #52687f; /* Bootstrap primary color */
+    background-color: #7e7f52; /* Bootstrap primary color */
     color: #ffffff; /* White text color */
     border: none; /* Remove the default border */
     padding: 10px 15px; /* Padding inside the button */
     margin-top: 10px; /* Margin at the top of the button */
     border-radius: 5px; /* Slightly rounded corners for the buttons */
     cursor: pointer; /* Cursor changes to pointer on hover */
+    text-align: center; /* Centers text elements */
 }
 
 /* Hover effect for buttons */
@@ -45,4 +50,17 @@ footer {
     padding: 10px 0; /* Padding on top and bottom of the footer */
     background-color: #343a40; /* Dark background for the footer */
     color: #ffffff; /* White text color */
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+}
+h2 {
+    font-size:larger;
+}
+.content-area h2 {
+    font-size: 48px; /* Adjust the font size as needed */
+}
+
+.navbar-brand, .nav-link {
+    font-family: 'Oswald', sans-serif;
 }
