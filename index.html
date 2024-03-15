@@ -8,49 +8,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-    <body>
-        <!-- Navigation bar with Bootstrap classes -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html">
-             Recipe Finder
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="saved-recipes.html">Saved Recipes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="search-history.html">Search History</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="browse-recipes.html">Free Recipe Browsing</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="login-button">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="register-button">Register</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Recipe Finder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="saved-recipes.html">Saved Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="search-history.html">Search History</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="browse-recipes.html">Free Recipe Browsing</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="login-button">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="register-button">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <main class="UI container">
         <div class="content-area">
-        <section id="ingredient-section">
-            <img src="LeftoversIO.png" alt="Logo" style="max-height: 250px; "> 
-            <h2>What's in your fridge?</h2>
-            <textarea id="ingredients-input" placeholder="Enter ingredients you have, separated by commas..."></textarea>
-        </section>
+            <section id="ingredient-section">
+                <img src="LeftoversIO.png" alt="Logo" style="max-height: 250px;">
+                <h2>What's in your fridge?</h2>
+                <!-- Ingredient Selection Area -->
+                <div id="ingredient-selection-area">
+                    <!-- Example of Bubble Item for Ingredients -->
+                    <span class="badge badge-pill badge-secondary">Onion</span>
+                    <span class="badge badge-pill badge-secondary">Tomato</span>
+                    <span class="badge badge-pill badge-secondary">Chicken</span>
+                    <!-- More ingredients as bubble items... -->
+                </div>
+            </section>
 
+           
         <section id="filters-section">
             <fieldset>
                 <legend>Filter by dietary preference:</legend>
@@ -77,23 +82,20 @@
                 <!-- Add more dietary options here -->
             </fieldset>
 
-<br>
 
-            <button id="find-recipes-button">Find Recipes</button>
-        </section>
-        
-<br> 
+            <button id="find-recipes-button" class="btn btn-primary">Find Recipes</button>
 
-        <section id="results-section">
-            <!-- Results will be populated here -->
-        </section>
+            <section id="results-section">
+                <!-- Results will be populated here -->
+            </section>
 
-        <section id="shopping-list-section">
-            <h2>Shopping List (Missing Ingredients)</h2>
-            <!-- Shopping list items will be added here -->
-        </section>
-    </div>
+            <section id="shopping-list-section">
+                <h2>Shopping List (Missing Ingredients)</h2>
+                <!-- Shopping list items will be added here -->
+            </section>
+        </div>
     </main>
+
     <footer class="copyright">
         <p>&copy; 2024 Recipe Finder. All Rights Reserved.</p>
     </footer>

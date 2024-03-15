@@ -1,7 +1,10 @@
+// Import the API key from config.js at the top of your file
+import { API_KEY } from './config.js';
+
 // Function to fetch ingredients by category
 function fetchIngredients(category) {
-    // Use the correct endpoint for fetching categories. This is just an example
-    let apiUrl = `https://api.spoonacular.com/food/ingredients/${category}?apiKey=YOUR_API_KEY`;
+    // Use the API key in the URL
+    let apiUrl = `https://api.spoonacular.com/food/ingredients/${category}?apiKey=${API_KEY}`;
     
     fetch(apiUrl)
         .then(response => response.json())
