@@ -46,13 +46,31 @@
                 <img src="LeftoversIO.png" alt="Logo" style="max-height: 250px;">
                 <h2>What's in your fridge?</h2>
                 <!-- Ingredient Selection Area -->
-                <div id="ingredient-selection-area">
-                    <!-- Example of Bubble Item for Ingredients -->
-                    <span class="badge badge-pill badge-secondary">Onion</span>
-                    <span class="badge badge-pill badge-secondary">Tomato</span>
-                    <span class="badge badge-pill badge-secondary">Chicken</span>
-                    <!-- More ingredients as bubble items... -->
+                <div class="tab-section">
+                    <ul class="nav nav-tabs" id="ingredientTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="meat-tab" data-toggle="tab" href="#meat" role="tab" aria-controls="meat" aria-selected="true">Meat</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="vegetable-tab" data-toggle="tab" href="#vegetable" role="tab" aria-controls="vegetable" aria-selected="false">Vegetable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab" aria-controls="other" aria-selected="false">Other</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="ingredientTabContent">
+                        <div class="tab-pane fade show active" id="meat" role="tabpanel" aria-labelledby="meat-tab">
+                            <!-- Meat ingredients will be loaded here -->
+                        </div>
+                        <div class="tab-pane fade" id="vegetable" role="tabpanel" aria-labelledby="vegetable-tab">
+                            <!-- Vegetable ingredients will be loaded here -->
+                        </div>
+                        <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                            <!-- Other ingredients will be loaded here -->
+                        </div>
+                    </div>
                 </div>
+            
             </section>
 
            
@@ -83,16 +101,13 @@
             </fieldset>
 
 
-            <button id="find-recipes-button" class="btn btn-primary">Find Recipes</button>
+            <button id="find-recipes-button" class="btn btn-primary">Three Random Recipes!</button>
 
             <section id="results-section">
                 <!-- Results will be populated here -->
             </section>
 
-            <section id="shopping-list-section">
-                <h2>Shopping List (Missing Ingredients)</h2>
-                <!-- Shopping list items will be added here -->
-            </section>
+       
         </div>
     </main>
 

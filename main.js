@@ -29,6 +29,30 @@ function createIngredientBubbles(ingredients, category) {
     });
 }
 
+// Function to fetch random recipes with selected ingredients
+function fetchRandomRecipes(selectedIngredients) {
+    let ingredientsParam = selectedIngredients.join(','); // Join ingredients into a string
+    let apiUrl = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=1&tags=${ingredientsParam}`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            displayRandomRecipe(data.recipes[0]); 
+        })
+        .catch(error => console.error('Error fetching random recipe:', error));
+}
+
+// Function to display the random recipe in the UI
+function displayRandomRecipe(recipe) {
+    let resultsSection = document.getElementById('results-section');
+    resultsSection.innerHTML = `
+        <h3>${recipe.title}</h3>
+        <img src="${recipe.image}" alt="${recipe.title}">
+        <p>${recipe.instructions}</p>
+    `;
+    // Add more details as needed
+}
+
 // Function to handle ingredient selection toggling
 function toggleIngredientSelection(ingredient) {
     // Implement the logic for selecting/deselecting ingredients

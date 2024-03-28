@@ -5,8 +5,10 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
+
 /* Style for the main content area */
 .content-area {
+    font-size: larger;
     border: 2px solid #dee2e6; /* A subtle grey border */
     background-color: #fff6b8b5; /* White background for the content area */
     padding: 20px; /* Padding inside the content area */
@@ -29,7 +31,7 @@ body {
 
 /* Style the buttons with a primary color */
 button {
-    background-color: #7e7f52; /* Bootstrap primary color */
+    background-color: #000000; /* Bootstrap primary color */
     color: #ffffff; /* White text color */
     border: none; /* Remove the default border */
     padding: 10px 15px; /* Padding inside the button */
@@ -41,7 +43,7 @@ button {
 
 /* Hover effect for buttons */
 button:hover {
-    background-color: #0056b3; /* A darker shade of the primary color for hover effect */
+    background-color: #00264e; /* A darker shade of the primary color for hover effect */
 }
 
 /* Style for the footer */
@@ -64,3 +66,4 @@ h2 {
 .navbar-brand, .nav-link {
     font-family: 'Oswald', sans-serif;
 }
+
