@@ -19,7 +19,7 @@ function fetchRecipesByIngredients(ingredients) {
     const queryParam = ingredients.join(',');
     
     // Set the number of recipes to fetch
-    const numberOfRecipes = 3;
+    const numberOfRecipes = 5;
     
     // Construct the API URL
     let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${queryParam}&number=${numberOfRecipes}&sort=random&apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;

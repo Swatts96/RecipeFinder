@@ -72,18 +72,26 @@ h2 {
     margin-bottom: 20px; /* Space below the input field */
 }
 
-.recipe {
+.recipe-header {
+    cursor: pointer;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.recipe-header:hover {
+    text-decoration: underline;
+}
+
+.recipe-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.recipe-details {
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 20px; /* Space between recipes */
 }
 
-.recipe h3 {
-    margin-bottom: 10px;
-}
 
-.recipe img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
