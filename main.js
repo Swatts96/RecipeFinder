@@ -1,5 +1,3 @@
-
-
 // Function to fetch ingredients by category
 function fetchIngredients(category) {
     // Use the API key in the URL
