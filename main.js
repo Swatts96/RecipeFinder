@@ -1,10 +1,9 @@
-// Import the API key from config.js at the top of your file
-import { API_KEY } from './config.js';
+
 
 // Function to fetch ingredients by category
 function fetchIngredients(category) {
     // Use the API key in the URL
-    let apiUrl = `https://api.spoonacular.com/food/ingredients/${category}?apiKey=${API_KEY}`;
+    let apiUrl = `https://api.spoonacular.com/food/ingredients/${category}?apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;
     
     fetch(apiUrl)
         .then(response => response.json())
@@ -25,7 +24,7 @@ function fetchRecipesByIngredients(ingredients) {
     const numberOfRecipes = 3;
     
     // Construct the API URL
-    let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${queryParam}&number=${numberOfRecipes}&sort=random&apiKey=${API_KEY}`;
+    let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${queryParam}&number=${numberOfRecipes}&sort=random&apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;
     
     fetch(apiUrl)
         .then(response => response.json())
