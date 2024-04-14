@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -79,7 +81,32 @@
 
             <button id="find-recipes-button" class="btn btn-primary">Five Random Recipes!</button>
 
+
+            <!-- Tab links -->
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'ViewRecipe')">View Recipe</button>
+    <button class="tablinks" onclick="openTab(event, 'Ingredients')">Ingredients</button>
+    <button class="tablinks" onclick="openTab(event, 'Description')">Description</button>
+  </div>
+  
+  <!-- Tab content -->
+  <div id="ViewRecipe" class="tabcontent">
+    <h3>View Recipe</h3>
+    <p>Go to the Spoonacular page for detailed instructions.</p>
+  </div>
+  
+  <div id="Ingredients" class="tabcontent">
+    <h3>Ingredients</h3>
+    <p>Ingredients will be listed here.</p>
+  </div>
+  
+  <div id="Description" class="tabcontent">
+    <h3>Description</h3>
+    <p>Description will be shown here.</p>
+  </div>
+  
             <section id="results-section">
+                
                 <!-- Results will be populated here -->
             </section>
 
@@ -88,5 +115,6 @@
     </main>
 
     <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 </body>
 </html>

@@ -32,21 +32,30 @@ function fetchRecipesByIngredients(ingredients) {
         .catch(error => console.error('Error fetching recipes:', error));
 }
 
-// Function to handle the recipe display
+// Function to handle the recipe display with animation
 function displayRecipes(recipes) {
     const resultsSection = document.getElementById('results-section');
     resultsSection.innerHTML = ''; // Clear any previous results
-    
+
     // Loop through the recipes and create elements for each
-    recipes.forEach(recipe => {
+    recipes.forEach((recipe, index) => {
         const recipeElement = document.createElement('div');
         recipeElement.className = 'recipe';
         recipeElement.innerHTML = `
             <h3>${recipe.title}</h3>
-            <img src="${recipe.image}" alt="${recipe.title}">
+            <img src="${recipe.image}" alt="${recipe.title}" class="animate__animated">
             <a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank">View Recipe</a>
         `;
         resultsSection.appendChild(recipeElement);
+        
+        // Animate each recipe element using GSAP
+        gsap.from(recipeElement, {
+            duration: 0.5,  // Duration of the animation
+            autoAlpha: 0,   // Starts from transparent and fades in
+            y: 50,          // Starts 50 pixels down from its final position
+            delay: index * 0.1, // Stagger the start of each animation
+            ease: 'power1.out' // Smoothing out the animation
+        });
     });
 }
 
