@@ -1,97 +1,84 @@
-
-/* Set a background color for the whole page */
 body {
-    background-color: #ffffff; /* A light grey background, you can choose any color you like */
-    font-family: 'Oswald', sans-serif;
+  background-color: #ffffff;
+  font-family: "Oswald", sans-serif;
 }
 
-
-/* Style for the main content area */
 .content-area {
-    font-size: larger;
-    border: 2px solid #dee2e6; /* A subtle grey border */
-    background-color: #fff6b8b5; /* White background for the content area */
-    padding: 20px; /* Padding inside the content area */
-    margin-top: 20px; /* Margin at the top of the content area */
-    border-radius: 5px; /* Slightly rounded corners for the border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* A light shadow for some depth */
+  font-size: larger;
+  border: 2px solid #dee2e6;
+  background-color: rgba(179, 170, 114, 0.7098039216);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Additional styling for the ingredient section */
-#ingredient-section {
-    margin-bottom: 20px; /* Add some space below the ingredient section */
-    text-align: center; /* Centers text elements */
+#ingredient-section, #ingredient-input, .recipe-details {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-/* Styling for the filter checkboxes */
 #filters-section label {
-    margin-right: 10px; /* Space out the checkboxes */
-    text-align: center; /* Centers text elements */
+  margin-right: 10px;
+  text-align: center;
 }
 
-/* Style the buttons with a primary color */
 button {
-    background-color: #000000; /* Bootstrap primary color */
-    color: #ffffff; /* White text color */
-    border: none; /* Remove the default border */
-    padding: 10px 15px; /* Padding inside the button */
-    margin-top: 10px; /* Margin at the top of the button */
-    border-radius: 5px; /* Slightly rounded corners for the buttons */
-    cursor: pointer; /* Cursor changes to pointer on hover */
-    text-align: center; /* Centers text elements */
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
 }
 
-/* Hover effect for buttons */
 button:hover {
-    background-color: #00264e; /* A darker shade of the primary color for hover effect */
+  background-color: #00264e;
 }
 
-/* Style for the footer */
 footer {
-    text-align: center; /* Center the text inside the footer */
-    padding: 10px 0; /* Padding on top and bottom of the footer */
-    background-color: #343a40; /* Dark background for the footer */
-    color: #ffffff; /* White text color */
+  text-align: center;
+  padding: 10px 0;
+  background-color: #343a40;
+  color: #ffffff;
 }
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
+
 h2 {
-    font-size:larger;
+  font-size: larger;
 }
+
 .content-area h2 {
-    font-size: 48px; /* Adjust the font size as needed */
+  font-size: 48px;
 }
 
 .navbar-brand, .nav-link {
-    font-family: 'Oswald', sans-serif;
-}
-
-/* styles.css */
-#ingredient-input {
-    margin-bottom: 20px; /* Space below the input field */
+  font-family: "Oswald", sans-serif;
 }
 
 .recipe-header {
-    cursor: pointer;
-    color: #007bff;
-    margin-bottom: 5px;
+  cursor: pointer;
+  color: #007bff;
+  margin-bottom: 5px;
 }
 
 .recipe-header:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .recipe-details img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
 }
 
 .recipe-details {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px; /* Space between recipes */
-}
-
-
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  margin-bottom: 20px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,58 @@
+// Variables
+$font-primary: 'Oswald', sans-serif;
+$background-color-main: #ffffff;
+$border-color: #dee2e6;
+$content-area-bg: rgba(190, 180, 110, 0.7098039216);
+$button-bg: #000000;
+$button-bg-hover: #00264e;
+$footer-bg: #343a40;
+$text-color: #ffffff;
+
+// Mixins
+@mixin rounded-corners($radius: 5px) {
+  border-radius: $radius;
+}
+
+@mixin center-text {
+  text-align: center;
+}
+
+@mixin button-style {
+  background-color: $button-bg;
+  color: $text-color;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  @include rounded-corners;
+  transition: background-color 0.3s;
+}
+
+// General body styles
+body {
+  background-color: $background-color-main;
+  font-family: $font-primary;
+}
+
+// Main content area with nested elements
+.content-area {
+  font-size: larger;
+  border: 2px solid $border-color;
+  background-color: $content-area-bg;
+  padding: 20px;
+  margin-top: 20px;
+  @include rounded-corners;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 48px;
+  }
+}
+
+// Responsive Media Queries
+@media (max-width: 768px) {
+  .content-area {
+    padding: 10px;
+    font-size: medium;
+  }
+}
