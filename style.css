@@ -4,81 +4,38 @@ body {
 }
 
 .content-area {
-  font-size: larger;
-  border: 2px solid #dee2e6;
-  background-color: rgba(179, 170, 114, 0.7098039216);
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     /* Your existing styles */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    text-align: center; /* Centers text within each child element */
+    font-size: larger;
+    border: 2px solid #dee2e6;
+    background-color: rgba(190, 180, 110, 0.7098039216);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-#ingredient-section, #ingredient-input, .recipe-details {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-#filters-section label {
-  margin-right: 10px;
-  text-align: center;
-}
-
-button {
-  background-color: #000000;
-  color: #ffffff;
-  border: none;
-  padding: 10px 15px;
-  margin-top: 10px;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #00264e;
-}
-
-footer {
-  text-align: center;
-  padding: 10px 0;
-  background-color: #343a40;
-  color: #ffffff;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Oswald", sans-serif;
-}
-
-h2 {
-  font-size: larger;
-}
-
 .content-area h2 {
   font-size: 48px;
 }
 
-.navbar-brand, .nav-link {
-  font-family: "Oswald", sans-serif;
-}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust size as needed */
+    gap: 20px; /* Space between grid items */
+    
+  }
+  
+  .grid-item {
+    padding: 5%;
+  }
 
-.recipe-header {
-  cursor: pointer;
-  color: #007bff;
-  margin-bottom: 5px;
-}
-
-.recipe-header:hover {
-  text-decoration: underline;
-}
-
-.recipe-details img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.recipe-details {
-  border: 1px solid #dee2e6;
-  padding: 15px;
-  margin-bottom: 20px;
+@media (max-width: 768px) {
+  .content-area {
+    padding: 10px;
+    font-size: medium;
+  }
 }/*# sourceMappingURL=style.css.map */
