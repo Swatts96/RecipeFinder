@@ -37,22 +37,48 @@ function displayRecipes(recipes) {
     resultsSection.innerHTML = ''; // Clear any previous results
     resultsSection.classList.add('grid-container'); // Add a class for styling the grid
 
-    // Loop through the recipes and create elements for each
     recipes.forEach((recipe, index) => {
+        // Create and configure the main recipe element
         const recipeElement = document.createElement('div');
-        recipeElement.className = 'recipe grid-item animate__animated'; // Add Animate.css classes
-        recipeElement.classList.add('animate__fadeInUp');
+        recipeElement.className = 'recipe grid-item animate__animated animate__fadeInUp';
         recipeElement.style.animationDelay = `${index * 0.2}s`; // Delay the animation of each recipe
-
         recipeElement.innerHTML = `
             <h3>${recipe.title}</h3>
             <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image">
             <a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank">View Recipe</a>
         `;
 
+        // Append the recipeElement to the container
         resultsSection.appendChild(recipeElement);
 
-        addDetailedInformation(recipe.id, recipeElement);
+        // Create 'View More' button
+        const viewMoreBtn = document.createElement('button');
+        viewMoreBtn.innerText = 'View More';
+        viewMoreBtn.className = 'btn btn-info view-more-button';
+        viewMoreBtn.setAttribute('data-recipe-id', recipe.id);
+        recipeElement.appendChild(viewMoreBtn);
+
+        // Create a container for the details
+        const detailsContainer = document.createElement('div');
+        detailsContainer.id = `details-${recipe.id}`;
+        detailsContainer.style.display = 'none'; // Initially hidden
+        recipeElement.appendChild(detailsContainer);
+
+        // Set up the event listener for the 'View More' button
+        viewMoreBtn.addEventListener('click', function() {
+            const recipeId = this.getAttribute('data-recipe-id');
+            const detailsDiv = document.getElementById(`details-${recipeId}`);
+            const isVisible = detailsDiv.style.display === 'block';
+            
+            // Toggle visibility of details
+            detailsDiv.style.display = isVisible ? 'none' : 'block';
+            
+            // Fetch details if not already fetched
+            if (!isVisible && !detailsDiv.hasAttribute('data-fetched')) {
+                fetchAndDisplayRecipeDetails(recipeId, detailsDiv);
+                detailsDiv.setAttribute('data-fetched', 'true');
+            }
+        });
     });
 }
 
@@ -85,51 +111,64 @@ function addDetailedInformation(recipeId, recipeElement) {
 
 
 // Function to fetch and display detailed information for each recipe
-function fetchAndDisplayRecipeDetails(recipeId, recipeElement) {
+function fetchAndDisplayRecipeDetails(recipeId, detailsContainer) {
     const detailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=01090eb8422f4a118390b44a9932c1d8`;
-  
-    fetch(detailsUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(details => {
-        // Assuming 'details' is the JSON object returned by the API with the recipe details
-        // Now we can display the details such as ingredients and instructions
-  
-        // For example, append the summary to the recipeElement
-        if (details.summary) {
-          const summaryDiv = document.createElement('div');
-          summaryDiv.className = 'recipe-summary';
-          summaryDiv.innerHTML = details.summary;
-          recipeElement.appendChild(summaryDiv);
-        }
-  
-        // Append the ingredients list to the recipeElement
-        if (details.extendedIngredients) {
-          const ingredientsDiv = document.createElement('div');
-          ingredientsDiv.className = 'recipe-ingredients';
-          const ingredientsList = details.extendedIngredients.map(ing => `<li>${ing.original}</li>`).join('');
-          ingredientsDiv.innerHTML = `<ul>${ingredientsList}</ul>`;
-          recipeElement.appendChild(ingredientsDiv);
-        }
-  
-        // Append the instructions to the recipeElement
-        if (details.instructions) {
-          const instructionsDiv = document.createElement('div');
-          instructionsDiv.className = 'recipe-instructions';
-          instructionsDiv.innerHTML = details.instructions;
-          recipeElement.appendChild(instructionsDiv);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching recipe details:', error);
-        // Handle the error, for example, by showing an error message to the user
-      });
-  }
 
+    // Check if details are already fetched to avoid redundant API calls
+    if (!detailsContainer.hasAttribute('data-fetched')) {
+        fetch(detailsUrl)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(details => {
+                if (details) {
+                    // Display the details in the container
+                    displayRecipeDetails(details, detailsContainer);
+                    detailsContainer.setAttribute('data-fetched', 'true'); // Mark as fetched
+                    detailsContainer.style.display = 'block'; // Make sure to show the details
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching recipe details:', error);
+                // Handle the error, e.g., by showing an error message
+            });
+    } else {
+        // Toggle visibility if details are already fetched
+        detailsContainer.style.display = detailsContainer.style.display === 'none' ? 'block' : 'none';
+    }
+}
+
+// Helper function to append recipe details to the details container
+function displayRecipeDetails(details, container) {
+    container.innerHTML = ''; // Clear previous details if any
+
+    // Append the summary
+    const summaryDiv = document.createElement('div');
+    summaryDiv.className = 'recipe-summary';
+    summaryDiv.innerHTML = details.summary || 'No summary available.';
+    container.appendChild(summaryDiv);
+
+    // Append the ingredients list
+    const ingredientsDiv = document.createElement('div');
+    ingredientsDiv.className = 'recipe-ingredients';
+    const ingredientsList = document.createElement('ul');
+    details.extendedIngredients.forEach(ingredient => {
+        const ingredientItem = document.createElement('li');
+        ingredientItem.innerHTML = ingredient.original;
+        ingredientsList.appendChild(ingredientItem);
+    });
+    ingredientsDiv.appendChild(ingredientsList);
+    container.appendChild(ingredientsDiv);
+
+    // Append the cooking instructions
+    if (details.instructions) {
+        const instructionsDiv = document.createElement('div');
+        instructionsDiv.className = 'recipe-instructions';
+        instructionsDiv.innerHTML = details.instructions;
+        container.appendChild(instructionsDiv);
+    }
+}
 
 document.getElementById('find-recipes-button').addEventListener('click', () => {
     const ingredientInput = document.getElementById('ingredient-input');
