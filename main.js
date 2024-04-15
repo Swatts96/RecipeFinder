@@ -51,38 +51,85 @@ function displayRecipes(recipes) {
         `;
 
         resultsSection.appendChild(recipeElement);
+
+        addDetailedInformation(recipe.id, recipeElement);
     });
 }
-// Function to fetch and display detailed information for each recipe
-function fetchAndDisplayRecipeDetails(recipeId) {
-    const recipeDetailUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;
-    
-    fetch(recipeDetailUrl)
-      .then(response => response.json())
-      .then(data => {
-        // Create elements for the description and ingredients grid list
-        const descriptionElement = document.createElement('p');
-        descriptionElement.className = 'summary panel';
-        descriptionElement.setAttribute('itemprop', 'description');
-        descriptionElement.innerHTML = data.summary; // Assuming 'summary' contains the formatted description
-  
-        const ingredientsElement = document.createElement('div');
-        ingredientsElement.id = `spoonacular-ingredient-vis-list-${data.id}`;
-        ingredientsElement.style.display = 'block';
-        
-        // Assuming 'extendedIngredients' is an array of ingredients
-        data.extendedIngredients.forEach(ingredient => {
-          const ingredientItem = document.createElement('div');
-          ingredientItem.className = 'spoonacular-ingredient-list';
-          ingredientItem.textContent = `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`;
-          ingredientsElement.appendChild(ingredientItem);
-        });
-  
 
-        document.querySelector('#someContainerForDetails').appendChild(descriptionElement);
-        document.querySelector('#someContainerForDetails').appendChild(ingredientsElement);
+
+// Function to fetch and add detailed information for each recipe
+function addDetailedInformation(recipeId, recipeElement) {
+    const detailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=01090eb8422f4a118390b44a9932c1d8`;
+  
+    fetch(detailsUrl)
+      .then(response => response.json())
+      .then(details => {
+        // Create and append the summary description
+        const summaryElement = document.createElement('p');
+        summaryElement.className = 'summary-panel';
+        summaryElement.innerHTML = details.summary; // This should be the formatted description from the API
+        recipeElement.appendChild(summaryElement);
+  
+        // Create and append the ingredients list
+        const ingredientsList = document.createElement('ul');
+        ingredientsList.className = 'ingredients-list';
+        details.extendedIngredients.forEach(ingredient => {
+          const ingredientItem = document.createElement('li');
+          ingredientItem.textContent = `${ingredient.original}`;
+          ingredientsList.appendChild(ingredientItem);
+        });
+        recipeElement.appendChild(ingredientsList);
       })
-      .catch(error => console.error('Error fetching recipe details:', error));
+      .catch(error => console.error('Error fetching detailed information:', error));
+  }
+
+
+// Function to fetch and display detailed information for each recipe
+function fetchAndDisplayRecipeDetails(recipeId, recipeElement) {
+    const detailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=01090eb8422f4a118390b44a9932c1d8`;
+  
+    fetch(detailsUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(details => {
+        // Assuming 'details' is the JSON object returned by the API with the recipe details
+        // Now you can display the details such as ingredients and instructions
+  
+        // For example, append the summary to the recipeElement
+        if (details.summary) {
+          const summaryDiv = document.createElement('div');
+          summaryDiv.className = 'recipe-summary';
+          summaryDiv.innerHTML = details.summary;
+          recipeElement.appendChild(summaryDiv);
+        }
+  
+        // Append the ingredients list to the recipeElement
+        if (details.extendedIngredients) {
+          const ingredientsDiv = document.createElement('div');
+          ingredientsDiv.className = 'recipe-ingredients';
+          const ingredientsList = details.extendedIngredients.map(ing => `<li>${ing.original}</li>`).join('');
+          ingredientsDiv.innerHTML = `<ul>${ingredientsList}</ul>`;
+          recipeElement.appendChild(ingredientsDiv);
+        }
+  
+        // Append the instructions to the recipeElement
+        if (details.instructions) {
+          const instructionsDiv = document.createElement('div');
+          instructionsDiv.className = 'recipe-instructions';
+          instructionsDiv.innerHTML = details.instructions;
+          recipeElement.appendChild(instructionsDiv);
+        }
+  
+        // You can continue appending more details as needed...
+      })
+      .catch(error => {
+        console.error('Error fetching recipe details:', error);
+        // Handle the error, for example, by showing an error message to the user
+      });
   }
   
 
@@ -98,4 +145,10 @@ document.getElementById('find-recipes-button').addEventListener('click', () => {
     fetchRecipesByIngredients(ingredients); // Fetch recipes with the inputted ingredients
 });
 
-
+document.querySelectorAll('.view-more-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+      const recipeId = event.target.dataset.recipeId; // Make sure to set this data attribute when creating the button
+      const recipeElement = document.querySelector(`#recipe-${recipeId}`); // The element where you want to display the details
+      fetchAndDisplayRecipeDetails(recipeId, recipeElement);
+    });
+  });
