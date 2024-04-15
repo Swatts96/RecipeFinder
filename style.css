@@ -1,3 +1,59 @@
+.btn-primary {
+  background-color: rgba(206, 145, 13, 0.8784313725);
+}
+.btn-primary:hover {
+  background-color: rgba(158, 111, 10, 0.8784313725);
+}
+
+.btn-secondary {
+  background-color: rgba(206, 145, 13, 0.8784313725);
+}
+.btn-secondary:hover {
+  background-color: rgba(158, 111, 10, 0.8784313725);
+}
+
+.btn-success {
+  background-color: #28a745;
+}
+.btn-success:hover {
+  background-color: #1e7e34;
+}
+
+.btn-info {
+  background-color: rgba(206, 145, 13, 0.8784313725);
+}
+.btn-info:hover {
+  background-color: rgba(158, 111, 10, 0.8784313725);
+}
+
+.btn-warning {
+  background-color: #ffc107;
+}
+.btn-warning:hover {
+  background-color: #d39e00;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+.btn-danger:hover {
+  background-color: #bd2130;
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+}
+.btn-light:hover {
+  background-color: #dae0e5;
+}
+
+.btn-dark {
+  background-color: rgba(206, 145, 13, 0.8784313725);
+}
+.btn-dark:hover {
+  background-color: rgba(158, 111, 10, 0.8784313725);
+}
+
 body {
   background-color: #ffffff;
   font-family: "Oswald", sans-serif;

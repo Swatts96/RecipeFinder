@@ -42,25 +42,32 @@ function displayRecipes(recipes) {
         const recipeElement = document.createElement('div');
         recipeElement.className = 'recipe grid-item animate__animated animate__fadeInUp';
         recipeElement.style.animationDelay = `${index * 0.2}s`; // Delay the animation of each recipe
+
         recipeElement.innerHTML = `
             <h3>${recipe.title}</h3>
             <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image">
-            <a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank">View Recipe</a>
+            <a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank" class="btn btn-primary">View Recipe</a>
         `;
 
         // Append the recipeElement to the container
         resultsSection.appendChild(recipeElement);
 
+        // Determine button type based on some logic, for example, alternating button types
+        let buttonType = index % 2 === 0 ? 'info' : 'secondary';
+
         // Create 'View More' button
         const viewMoreBtn = document.createElement('button');
         viewMoreBtn.innerText = 'View More';
-        viewMoreBtn.className = 'btn btn-info view-more-button';
+        viewMoreBtn.className = `btn btn-${buttonType} view-more-button`;
         viewMoreBtn.setAttribute('data-recipe-id', recipe.id);
+
+        // Append the 'View More' button to the recipe element
         recipeElement.appendChild(viewMoreBtn);
 
         // Create a container for the details
         const detailsContainer = document.createElement('div');
         detailsContainer.id = `details-${recipe.id}`;
+        detailsContainer.className = 'recipe-details-container';
         detailsContainer.style.display = 'none'; // Initially hidden
         recipeElement.appendChild(detailsContainer);
 
@@ -69,10 +76,10 @@ function displayRecipes(recipes) {
             const recipeId = this.getAttribute('data-recipe-id');
             const detailsDiv = document.getElementById(`details-${recipeId}`);
             const isVisible = detailsDiv.style.display === 'block';
-            
+
             // Toggle visibility of details
             detailsDiv.style.display = isVisible ? 'none' : 'block';
-            
+
             // Fetch details if not already fetched
             if (!isVisible && !detailsDiv.hasAttribute('data-fetched')) {
                 fetchAndDisplayRecipeDetails(recipeId, detailsDiv);
@@ -81,7 +88,6 @@ function displayRecipes(recipes) {
         });
     });
 }
-
 
 // Function to fetch and add detailed information for each recipe
 function addDetailedInformation(recipeId, recipeElement) {

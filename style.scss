@@ -29,6 +29,31 @@ $text-color: #ffffff;
   transition: background-color 0.3s;
 }
 
+$button-colors: (
+  primary: #ce910de0,
+  secondary: #ce910de0,
+  success: #28a745,
+  info: #ce910de0,
+  warning: #ffc107,
+  danger: #dc3545,
+  light: #f8f9fa,
+  dark: #ce910de0,
+);
+
+// Mixin to create button styles
+@mixin button-variant($color) {
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+}
+
+// Loop through each color in the map and create button classes
+@each $name, $color in $button-colors {
+  .btn-#{$name} {
+    @include button-variant($color);
+  }
+}
 
 
 
