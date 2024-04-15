@@ -55,12 +55,12 @@
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #e0e6c1;
   font-family: "Oswald", sans-serif;
 }
 
 .introduction {
-    background-color: #ddbc60; /* Light grey background, adjust color to fit your design */
+    background-color: #e9d7a7; /* Light grey background, adjust color to fit your design */
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
@@ -81,21 +81,31 @@ body {
 
 
 .content-area {
-  font-size: larger;
-  border: 2px solid #dee2e6;
-  background-color: rgba(190, 180, 110, 0.7098039216);
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.content-area h2 {
-  font-size: 48px;
-}
-
-@media (max-width: 768px) {
-  .content-area {
-    padding: 10px;
-    font-size: medium;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    font-size: larger;
+    border: 2px solid #dee2e6;
+    background-color: rgba(190, 180, 110, 0.7098039216);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column; 
+    min-height: 100vh; 
   }
-}/*# sourceMappingURL=style.css.map */
+  
+  .content-area h2 {
+    font-size: 48px;
+  }
+  
+  @media (max-width: 768px) {
+    .content-area {
+      padding: 10px;
+      font-size: medium;
+    }
+  }
+  
+
+/*# sourceMappingURL=style.css.map */
