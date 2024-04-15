@@ -1,0 +1,7 @@
+split(): This method is used to split a string into an array of substrings, and returns the new array. This is evident in our event listener for the 'find-recipes-button', where we split the input string by commas.
+
+map(): It creates a new array with the results of calling a provided function on every element in the calling array. We've used this method to trim whitespace from each ingredient entered by the user.
+
+filter(): This method creates a new array with all elements that pass the test implemented by the provided function. In our case, I'm are using it to remove any empty strings from the array of ingredients.
+
+forEach(): This method executes a provided function once for each array element. We are using forEach to iterate through the recipes array and also through the details.extendedIngredients array.

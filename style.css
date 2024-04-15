@@ -1,10 +1,10 @@
 body {
-  background-color: #ffffff;
+  background-color: #f7c41da2;
   font-family: "Oswald", sans-serif;
 }
 
 .content-area {
-     /* Your existing styles */
+     /* Our existing styles */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers content horizontally */
@@ -12,7 +12,7 @@ body {
     text-align: center; /* Centers text within each child element */
     font-size: larger;
     border: 2px solid #dee2e6;
-    background-color: rgba(190, 180, 110, 0.7098039216);
+    background-color: rgba(223, 224, 161, 0.71);
     padding: 20px;
     margin-top: 20px;
     border-radius: 5px;
@@ -24,18 +24,33 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between grid items */
     padding: 20px;
-  }
+    max-width: 1200px; /* Maximum width of the grid */
+    margin: 0 auto; /* Center the grid horizontally */
+}
   
-  .grid-item {
-    padding: 5%;
-  }
+.grid-item {
+    background: #4c6b633f; /* Optional: adds background to grid items */
+    border: 1px solid #dee2e6; /* Optional: adds border to grid items */
+    border-radius: 5px; /* Rounded corners for grid items */
+    padding: 20px; /* Padding inside grid items */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: adds shadow to grid items */
+    display: flex;
+    flex-direction: column; /* Stack children elements vertically */
+}
+
+
+.recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /* Optional: to have rounded corners for images */
+}
+
 
 @media (max-width: 768px) {
-  .content-area {
-    padding: 10px;
-    font-size: medium;
-  }
-}/*# sourceMappingURL=style.css.map */
+    .grid-container {
+      grid-template-columns: 1fr; /* One column on smaller screens */
+    }
+  }/*# sourceMappingURL=style.css.map */

@@ -97,7 +97,7 @@ function fetchAndDisplayRecipeDetails(recipeId, recipeElement) {
       })
       .then(details => {
         // Assuming 'details' is the JSON object returned by the API with the recipe details
-        // Now you can display the details such as ingredients and instructions
+        // Now we can display the details such as ingredients and instructions
   
         // For example, append the summary to the recipeElement
         if (details.summary) {
@@ -123,16 +123,12 @@ function fetchAndDisplayRecipeDetails(recipeId, recipeElement) {
           instructionsDiv.innerHTML = details.instructions;
           recipeElement.appendChild(instructionsDiv);
         }
-  
-        // You can continue appending more details as needed...
       })
       .catch(error => {
         console.error('Error fetching recipe details:', error);
         // Handle the error, for example, by showing an error message to the user
       });
   }
-  
-
 
 
 document.getElementById('find-recipes-button').addEventListener('click', () => {
@@ -148,7 +144,7 @@ document.getElementById('find-recipes-button').addEventListener('click', () => {
 document.querySelectorAll('.view-more-button').forEach(button => {
     button.addEventListener('click', (event) => {
       const recipeId = event.target.dataset.recipeId; // Make sure to set this data attribute when creating the button
-      const recipeElement = document.querySelector(`#recipe-${recipeId}`); // The element where you want to display the details
+      const recipeElement = document.querySelector(`#recipe-${recipeId}`); // The element where we want to display the details
       fetchAndDisplayRecipeDetails(recipeId, recipeElement);
     });
   });
