@@ -18,7 +18,7 @@ function fetchRecipesByIngredients(ingredients) {
     // Construct the query parameter from the input
     const queryParam = ingredients.join(',');
     // Set the number of recipes to fetch
-    const numberOfRecipes = 5;
+    const numberOfRecipes = 9;
     
     // Construct the API URL
     let apiUrl = `https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${queryParam}&number=${numberOfRecipes}&sort=random&apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;
@@ -41,7 +41,6 @@ function displayRecipes(recipes) {
     recipes.forEach((recipe, index) => {
         const recipeElement = document.createElement('div');
         recipeElement.className = 'recipe grid-item animate__animated'; // Add Animate.css classes
-        // Choose the animation effect you like from Animate.css
         recipeElement.classList.add('animate__fadeInUp');
         recipeElement.style.animationDelay = `${index * 0.2}s`; // Delay the animation of each recipe
 
@@ -54,8 +53,38 @@ function displayRecipes(recipes) {
         resultsSection.appendChild(recipeElement);
     });
 }
-
-
+// Function to fetch and display detailed information for each recipe
+function fetchAndDisplayRecipeDetails(recipeId) {
+    const recipeDetailUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;
+    
+    fetch(recipeDetailUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Create elements for the description and ingredients grid list
+        const descriptionElement = document.createElement('p');
+        descriptionElement.className = 'summary panel';
+        descriptionElement.setAttribute('itemprop', 'description');
+        descriptionElement.innerHTML = data.summary; // Assuming 'summary' contains the formatted description
+  
+        const ingredientsElement = document.createElement('div');
+        ingredientsElement.id = `spoonacular-ingredient-vis-list-${data.id}`;
+        ingredientsElement.style.display = 'block';
+        
+        // Assuming 'extendedIngredients' is an array of ingredients
+        data.extendedIngredients.forEach(ingredient => {
+          const ingredientItem = document.createElement('div');
+          ingredientItem.className = 'spoonacular-ingredient-list';
+          ingredientItem.textContent = `${ingredient.amount} ${ingredient.unit} ${ingredient.name}`;
+          ingredientsElement.appendChild(ingredientItem);
+        });
+  
+        // Append these elements to the DOM, you would need to define where they should be attached
+        document.querySelector('#someContainerForDetails').appendChild(descriptionElement);
+        document.querySelector('#someContainerForDetails').appendChild(ingredientsElement);
+      })
+      .catch(error => console.error('Error fetching recipe details:', error));
+  }
+  
 
 
 
