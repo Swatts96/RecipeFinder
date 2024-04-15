@@ -59,6 +59,27 @@ body {
   font-family: "Oswald", sans-serif;
 }
 
+.introduction {
+    background-color: #ddbc60; /* Light grey background, adjust color to fit your design */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.introduction h1 {
+    color: #343a40; /* Dark grey color for the text, matches the footer */
+    margin-bottom: 10px;
+}
+
+.introduction p {
+    color: #666; /* Lighter text color for the paragraph */
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
 .content-area {
   font-size: larger;
   border: 2px solid #dee2e6;

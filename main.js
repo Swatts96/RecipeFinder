@@ -1,3 +1,5 @@
+
+
 // Function to fetch ingredients by category
 function fetchIngredients(category) {
     // Use the API key in the URL
@@ -37,12 +39,13 @@ function displayRecipes(recipes) {
     resultsSection.innerHTML = ''; // Clear any previous results
     resultsSection.classList.add('grid-container'); // Add a class for styling the grid
 
+    let dragulaContainers = []; // Array to store draggable containers
+
     recipes.forEach((recipe, index) => {
         // Create and configure the main recipe element
         const recipeElement = document.createElement('div');
         recipeElement.className = 'recipe grid-item animate__animated animate__fadeInUp';
-        recipeElement.style.animationDelay = `${index * 0.2}s`; // Delay the animation of each recipe
-
+        recipeElement.style.animationDelay = `${index * 0.2}s`;
         recipeElement.innerHTML = `
             <h3>${recipe.title}</h3>
             <img src="${recipe.image}" alt="${recipe.title}" class="recipe-image">
@@ -86,9 +89,26 @@ function displayRecipes(recipes) {
                 detailsDiv.setAttribute('data-fetched', 'true');
             }
         });
+
+        // Add recipeElement to Dragula's array of containers
+        dragulaContainers.push(recipeElement);
+    });
+
+    // Initialize Dragula with the array of recipe elements
+    dragula(dragulaContainers)
+    .on('drag', function(el) {
+        // Optional: add a class or style when dragging starts
+        el.classList.add('is-moving');
+    })
+    .on('dragend', function(el) {
+        // Optional: clean up any class or style when dragging ends
+        el.classList.remove('is-moving');
+    })
+    .on('drop', function(el, target, source, sibling) {
+        // Optional: Handle the drop event
+        console.log(`Recipe was moved: ${el.id}`);
     });
 }
-
 // Function to fetch and add detailed information for each recipe
 function addDetailedInformation(recipeId, recipeElement) {
     const detailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=01090eb8422f4a118390b44a9932c1d8`;

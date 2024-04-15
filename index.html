@@ -43,7 +43,14 @@
     </nav>
 
     <main class="UI container">
+
         <div class="content-area">
+            <div class="introduction">
+                <h1>Welcome to Recipe Finder!</h1>
+                <p>Discover recipes based on what’s in your fridge. Enter ingredients you have, and we'll suggest recipes that you can cook with them. Start by typing ingredients below, separated by commas. <br><br>We've also implemented Dragula, an external javascript library that allows the user to drag and drop elements on the page. Although this doesn't have anything to do with the main functionality of our application; it allows for some fun drag and drop exploration within the DOM, and allows the user to organize the recipes and elements in a new way! 
+                </p>
+            </div>
+            
             <section id="ingredient-section">
                 <img src="LeftoversIO.png" alt="Logo" style="max-height: 250px;">
                     <h2>What's in your fridge?</h2>
@@ -53,32 +60,6 @@
 
            
         <section id="filters-section">
-            <fieldset>
-                <legend>Filter by dietary preference:</legend>
-                <label for="vegetarian">
-                    <input type="checkbox" id="vegetarian" name="diet" value="vegetarian">
-                    Vegetarian
-                </label>
-                <label for="vegan">
-                    <input type="checkbox" id="vegan" name="diet" value="vegan">
-                    Vegan
-                </label>
-                <label for="gluten-free">
-                    <input type="checkbox" id="gluten-free" name="diet" value="gluten-free">
-                    Gluten-Free
-                </label>
-                <label for="ketogenic">
-                    <input type="checkbox" id="ketogenic" name="diet" value="ketogenic">
-                    Ketogenic
-                </label>
-                <label for="paleo">
-                    <input type="checkbox" id="paleo" name="diet" value="paleo">
-                    Paleo
-                </label>
-          
-            </fieldset>
-
-
             <button id="find-recipes-button" class="btn btn-primary">Five Random Recipes!</button>
 
   
@@ -91,7 +72,9 @@
         </div>
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.min.js"></script>
     <script src="main.js" type="module"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
 </body>
 </html>
