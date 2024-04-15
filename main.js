@@ -78,7 +78,7 @@ function fetchAndDisplayRecipeDetails(recipeId) {
           ingredientsElement.appendChild(ingredientItem);
         });
   
-        // Append these elements to the DOM, you would need to define where they should be attached
+
         document.querySelector('#someContainerForDetails').appendChild(descriptionElement);
         document.querySelector('#someContainerForDetails').appendChild(ingredientsElement);
       })
