@@ -1,6 +1,5 @@
-
-
 // Function to fetch ingredients by category
+                                            //Ready for marking
 function fetchIngredients(category) {
     // Use the API key in the URL
     let apiUrl = `https://api.spoonacular.com/food/ingredients/${category}?apiKey=${'01090eb8422f4a118390b44a9932c1d8'}`;
@@ -13,7 +12,6 @@ function fetchIngredients(category) {
         })
         .catch(error => console.error('Error fetching ingredients:', error));
 }
-
 
 // Function to fetch recipes based on ingredients
 function fetchRecipesByIngredients(ingredients) {
@@ -109,6 +107,7 @@ function displayRecipes(recipes) {
         console.log(`Recipe was moved: ${el.id}`);
     });
 }
+
 // Function to fetch and add detailed information for each recipe
 function addDetailedInformation(recipeId, recipeElement) {
     const detailsUrl = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=01090eb8422f4a118390b44a9932c1d8`;
