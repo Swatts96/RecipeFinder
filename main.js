@@ -194,7 +194,7 @@ function displayRecipeDetails(details, container) {
         container.appendChild(instructionsDiv);
     }
 }
-
+//Commit
 document.getElementById('find-recipes-button').addEventListener('click', () => {
     const ingredientInput = document.getElementById('ingredient-input');
     if (ingredientInput.value.trim() === '') {
